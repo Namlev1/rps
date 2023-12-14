@@ -46,6 +46,32 @@ function scissors(computerSelection) {
     return "It's a draw. Scissors and scissors";
 }
 
-const playerSelection = prompt("Rock, paper, scissors?");
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+let n = 0;
+let userScore = 0;
+let computerScore = 0;
+while (n < 5) {
+    const playerSelection = prompt("Rock, paper, scissors?");
+    const computerSelection = getComputerChoice();
+    let res = playRound(playerSelection, computerSelection);
+    if (res.startsWith("Wrong")) {
+        alert("Wrong input")
+        continue;
+    }
+    if (res.startsWith("You win"))
+        userScore++;
+    else if (res.startsWith("You lose"))
+        computerScore++;
+    else {
+        userScore++;
+        computerScore++;
+    }
+    alert(res + '\n' + userScore + ':' + computerScore);
+    n++;
+}
+
+if (userScore > computerScore)
+    alert("You have won!")
+if (userScore < computerScore)
+    alert("You have lost :(")
+if (userScore == computerScore)
+    alert("It's a draw!")
