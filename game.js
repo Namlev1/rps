@@ -46,6 +46,6 @@ function scissors(computerSelection) {
     return "It's a draw. Scissors and scissors";
 }
 
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, paper, scissors?");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
